@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% import "macros/pub_dates.html" as pub_dates %}
+
+{% block content %}
+<article class="big-build">
+  <header class="center">
+    <h1>{{ meta.headline }}</h1>
+    {{ pub_dates.html(meta.pub_date) }}
+  </header>
+  <div class="container">
+    <section name="content">
+      <div class="intro">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque aspernatur aperiam officia quam quidem cum quod quasi sunt quia sint fuga, dignissimos aliquid assumenda non, eum sed explicabo at.</p>
+      </div>
+      {% for route in simpleRoutes %}
+      <img src="{{route.mapbox_url}}" />
+      {{route.features[0].properties.date}}
+      {% endfor %}
+    </section>
+  </div>
+</article>
+{% endblock content %}

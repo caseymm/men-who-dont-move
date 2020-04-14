@@ -1,0 +1,5 @@
+{% macro html(pub_date) %}
+<p class="dateline">
+  <time itemprop="datePublished" datetime="{{ pub_date|date('yyyy-MM-dd HH:mm:ss') }}">{{ pub_date|date('MMMM d, yyyy') }}</time>
+</p>
+{% endmacro %}
