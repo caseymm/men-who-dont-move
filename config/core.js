@@ -9,7 +9,7 @@ const baker = new Baker({
   input: process.cwd(),
   layouts: '_layouts',
   output: '_dist',
-  pathPrefix: 'github.com/caseymm/men-who-dont-move/_dist' || '/',
+  pathPrefix: 'caseymm/men-who-dont-move/_dist' || '/',
 });
 
 module.exports = { baker };

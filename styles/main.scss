@@ -1,4 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap');
+
+body{
+  font-family: 'Work Sans', sans-serif;
+  background-color: #f3f7fc;
+  color: #391bfe;
+}
+
+h1{
+  font-weight: 700;
+}
+
 img {
-  max-width: 300px;
   width: 100%;
+}
+
+.route-block{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  // justify-content: space-evenly;
+  .route{
+    max-width: 250px;
+    width: 100%;
+    display: block;
+    margin: 10px;
+  }
+  .desc{
+    margin-top: 5px;
+    font-size: 12px;
+    .flag-yes{
+      background-color: lighten(#6eedbe, 10%);
+    }
+  }
 }

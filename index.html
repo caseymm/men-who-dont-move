@@ -6,17 +6,34 @@
 <article class="big-build">
   <header class="center">
     <h1>{{ meta.headline }}</h1>
-    {{ pub_dates.html(meta.pub_date) }}
+    <!-- {{ pub_dates.html(meta.pub_date) }} -->
   </header>
   <div class="container">
     <section name="content">
       <div class="intro">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque aspernatur aperiam officia quam quidem cum quod quasi sunt quia sint fuga, dignissimos aliquid assumenda non, eum sed explicabo at.</p>
       </div>
-      {% for route in simpleRoutes %}
-      <img src="{{route.mapbox_url}}" />
-      {{route.features[0].properties.date}}
+      <div class="route-block">
+      {% for route in final %}
+        <div class="route">
+          <img src="{{route.mapbox_url}}" />
+          <div class="display-date">{{route.display_date}}</div>
+          <div class="desc">
+            {% if route.loc %}
+            {% for point in route.points|sort(false, false, "num") %}
+              {% if point.properties.loc == route.loc %}
+              <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
+              {% endif %}
+            {% endfor %}
+            {% else %}
+            {% for point in route.points|sort(false, false, "num") %}
+            <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
       {% endfor %}
+      </div>
     </section>
   </div>
 </article>
