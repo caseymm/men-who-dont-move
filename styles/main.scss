@@ -12,6 +12,17 @@ h1{
 
 img {
   width: 100%;
+  &.small-map{
+    display: none;
+    @media(max-width: 500px){
+      display: block;
+    }
+  }
+  &.large-map{
+    @media(max-width: 500px){
+      display: none;
+    }
+  }
 }
 
 .route-block{
@@ -20,8 +31,20 @@ img {
   align-items: flex-start;
   flex-wrap: wrap;
   // justify-content: space-evenly;
+  .display-date{
+    font-weight: 500;
+    // background-color: #391bfe;
+    // color: #f3f7fc;
+    @media(max-width: 500px){
+      margin-top: 2px;
+      font-size: 14px;
+    }
+  }
   .route{
     max-width: 250px;
+    @media(max-width: 500px){
+      max-width: 150px;
+    }
     width: 100%;
     display: block;
     margin: 10px;

@@ -39,6 +39,7 @@ request(
             simpleFeature.properties.date
           }"]&layer_id=all-routes-symbols`
         ).replace('#', '%23');
+        feat.mapbox_url_small = feat.mapbox_url.replace('250x250', '150x150')
         console.log(simpleFeature.properties.date)
         allRoutes.push(feat);
       } else {
@@ -65,6 +66,7 @@ request(
     allRoutes.forEach(r => {
       let item ={
         mapbox_url: r.mapbox_url,
+        mapbox_url_small: r.mapbox_url_small,
         route_date: r.route_date,
         display_date: r.display_date,
         points: allPoints[r.route_date]

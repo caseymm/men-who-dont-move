@@ -16,19 +16,24 @@
       <div class="route-block">
       {% for route in final %}
         <div class="route">
-          <img src="{{route.mapbox_url}}" />
+          <img class="large-map" src="{{route.mapbox_url}}" />
+          <img class="small-map" src="{{route.mapbox_url_small}}" />
           <div class="display-date">{{route.display_date}}</div>
           <div class="desc">
-            {% if route.loc %}
-            {% for point in route.points|sort(false, false, "num") %}
-              {% if point.properties.loc == route.loc %}
-              <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
-              {% endif %}
-            {% endfor %}
+            {% if not route.points %}
+              <span>No men to report.</span>
             {% else %}
-            {% for point in route.points|sort(false, false, "num") %}
-            <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
-            {% endfor %}
+              {% if route.loc %}
+              {% for point in route.points|sort(false, false, "num") %}
+                {% if point.properties.loc == route.loc %}
+                <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
+                {% endif %}
+              {% endfor %}
+              {% else %}
+              {% for point in route.points|sort(false, false, "num") %}
+              <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
+              {% endfor %}
+              {% endif %}
             {% endif %}
           </div>
         </div>
