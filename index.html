@@ -13,8 +13,7 @@
       <section name="content">
         <div class="intro">
           <p>my girlfriend and i 👭🏼 go on daily walks. we always do our best to keep 6+ feet from people. men don't fucking move. i'm tired of it.</p>
-          <p>so far we've gone on <span class="heavy">{{final.length}} walks</span> and encountered <span class="heavy">{{points.total}} men</span> who made little or no attempt to move. <span class="flag-yes"><span class="heavy">{{points.egregious}}</span> of these interactions were particularly egregious</span>. egregious interactions include, but are not limited to, men running 🏃🏽or purposefully walking 🚶🏼directly toward us, yelling at us to move, and pretty much any interaction involving bikes 🚴🏻 on sidewalks. this study is not scientific.</p>
-
+          <p>so far we've gone on <span class="heavy">{{final.length}} walks</span> and encountered <span class="heavy">{{points.total}} men</span> who made little or no attempt to move. <span class="flag-yes"><span class="heavy">{{points.egregious}}</span> of these interactions were particularly egregious</span>. egregious interactions include, but are not limited to, men running 🏃🏽or purposefully walking 🚶🏼directly toward us, yelling at us to move, and pretty much any interaction involving bikes 🚴🏻 on sidewalks. this is not a scientific study.</p>
         </div>
         <div class="route-block">
         {% for route in final %}
@@ -24,7 +23,7 @@
             <div class="display-date"><span>{{route.display_date}}</span></div>
             <div class="desc">
               {% if not route.points %}
-                <span>No men to report.</span>
+                <span>no men to report.</span>
               {% else %}
                 {% if route.loc %}
                 {% for point in route.points|sort(false, false, "num") %}
