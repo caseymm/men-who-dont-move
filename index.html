@@ -3,43 +3,47 @@
 {% import "macros/pub_dates.html" as pub_dates %}
 
 {% block content %}
-<article class="big-build">
-  <header class="center">
-    <h1>{{ meta.headline }}</h1>
-    <!-- {{ pub_dates.html(meta.pub_date) }} -->
-  </header>
-  <div class="container">
-    <section name="content">
-      <div class="intro">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque aspernatur aperiam officia quam quidem cum quod quasi sunt quia sint fuga, dignissimos aliquid assumenda non, eum sed explicabo at.</p>
-      </div>
-      <div class="route-block">
-      {% for route in final %}
-        <div class="route">
-          <img class="large-map" src="{{route.mapbox_url}}" />
-          <img class="small-map" src="{{route.mapbox_url_small}}" />
-          <div class="display-date">{{route.display_date}}</div>
-          <div class="desc">
-            {% if not route.points %}
-              <span>No men to report.</span>
-            {% else %}
-              {% if route.loc %}
-              {% for point in route.points|sort(false, false, "num") %}
-                {% if point.properties.loc == route.loc %}
-                <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
-                {% endif %}
-              {% endfor %}
-              {% else %}
-              {% for point in route.points|sort(false, false, "num") %}
-              <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
-              {% endfor %}
-              {% endif %}
-            {% endif %}
-          </div>
+<article>
+  <div class="project">
+    <header class="center">
+      <h1>{{ meta.headline }}</h1>
+      <!-- {{ pub_dates.html(meta.pub_date) }} -->
+    </header>
+    <div class="container">
+      <section name="content">
+        <div class="intro">
+          <p>my girlfriend and i 👭🏼 go on daily walks. we always do our best to keep 6+ feet from people. men don't fucking move. i'm tired of it.</p>
+          <p>so far we've gone on <span class="heavy">{{final.length}} walks</span> and encountered <span class="heavy">{{points.total}} men</span> who made little or no attempt to move. <span class="flag-yes"><span class="heavy">{{points.egregious}}</span> of these interactions were particularly egregious</span>. egregious interactions include, but are not limited to, men running 🏃🏽or purposefully walking 🚶🏼directly toward us, yelling at us to move, and pretty much any interaction involving bikes 🚴🏻on sidewalks. this study is not scientific.</p>
+
         </div>
-      {% endfor %}
-      </div>
-    </section>
+        <div class="route-block">
+        {% for route in final %}
+          <div class="route">
+            <img class="large-map" src="{{route.mapbox_url}}" />
+            <img class="small-map" src="{{route.mapbox_url_small}}" />
+            <div class="display-date"><span>{{route.display_date}}</span></div>
+            <div class="desc">
+              {% if not route.points %}
+                <span>No men to report.</span>
+              {% else %}
+                {% if route.loc %}
+                {% for point in route.points|sort(false, false, "num") %}
+                  {% if point.properties.loc == route.loc %}
+                  <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
+                  {% endif %}
+                {% endfor %}
+                {% else %}
+                {% for point in route.points|sort(false, false, "num") %}
+                <span class="flag-{{point.properties.flag}}">{{point.properties.num}}. {{point.properties.desc}}</span>
+                {% endfor %}
+                {% endif %}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </section>
+    </div>
   </div>
 </article>
 {% endblock content %}

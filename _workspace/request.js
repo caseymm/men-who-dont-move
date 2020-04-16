@@ -9,6 +9,8 @@ request(
   function (error, response, body) {
     let allRoutes = [];
     let allPoints = {};
+    let totalPoints = 0;
+    let egregious = 0;
     JSON.parse(body).features.forEach((feature) => {
       delete feature.id;
       if (feature.geometry.type == 'LineString') {
@@ -39,11 +41,15 @@ request(
             simpleFeature.properties.date
           }"]&layer_id=all-routes-symbols`
         ).replace('#', '%23');
-        feat.mapbox_url_small = feat.mapbox_url.replace('250x250', '150x150')
+        feat.mapbox_url_small = feat.mapbox_url.replace('250x250', '170x170')
         console.log(simpleFeature.properties.date)
         allRoutes.push(feat);
       } else {
         feature.num = feature.properties.num;
+        totalPoints ++;
+        if(feature.properties.flag === 'yes'){
+          egregious ++;
+        }
         if (allPoints[feature.properties.point_date]) {
           allPoints[feature.properties.point_date].push(feature);
         } else {
@@ -56,6 +62,8 @@ request(
       if (err) return console.log(err);
       console.log('wrote routes!');
     });
+    allPoints.total = totalPoints;
+    allPoints.egregious = egregious;
     fs.writeFile('_data/points.json', slim(allPoints), function (err) {
       if (err) return console.log(err);
       console.log('wrote points!');
