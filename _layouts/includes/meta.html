@@ -18,7 +18,7 @@
 <meta property="og:title" content="{{ meta.social_headline }}">
 <meta property="og:description" content="{{ meta.social_description }}">
 <meta property="og:url" content="{{ current_page.absolute_url }}">
-<meta property="og:image" content="{% static '/assets/meta/social.png' %}">
+<meta property="og:image" content="{% staticabsolute meta.social_image %}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="">
 <meta property="og:locale" content="en_US">
@@ -29,7 +29,7 @@
 <meta property="twitter:title" content="{{ meta.social_headline }}">
 <meta property="twitter:description" content="{{ meta.social_description }}">
 <meta property="twitter:url" content="{{ current_page.absolute_url }}">
-<meta property="twitter:image" content="{% static '/assets/meta/social.png' %}">
+<meta property="twitter:image" content="{% staticabsolute meta.social_image %}">
 <meta property="twitter:site" content="@caseymmiller">
 <meta property="twitter:card" content="summary_large_image">
 {% endblock twitter %}
