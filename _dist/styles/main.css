@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap");
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: #f3f7fc;
+  color: #391bfe;
+  margin: 0px;
+}
+
+article {
+  margin: 10px;
+}
+
+.project {
+  max-width: 1360px;
+  width: 100%;
+  margin: auto;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 33px;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 28px;
+  }
+}
+
+.flag-yes {
+  background-color: #9bf3d2;
+}
+
+.intro {
+  font-size: 18px;
+}
+.intro p {
+  line-height: 1.5;
+}
+.intro span.heavy {
+  font-weight: 600;
+}
+
+img {
+  width: 100%;
+}
+img.small-map {
+  display: none;
+}
+@media (max-width: 500px) {
+  img.small-map {
+    display: block;
+  }
+}
+@media (max-width: 500px) {
+  img.large-map {
+    display: none;
+  }
+}
+
+.route-block {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+@media (max-width: 1310px) {
+  .route-block {
+    grid-template-columns: auto auto auto auto;
+    column-gap: 10px;
+  }
+}
+@media (max-width: 1050px) {
+  .route-block {
+    grid-template-columns: auto auto auto;
+    column-gap: 10px;
+  }
+}
+@media (max-width: 770px) {
+  .route-block {
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    column-gap: 10px;
+  }
+}
+.route-block .display-date {
+  font-weight: 500;
+}
+@media (max-width: 500px) {
+  .route-block .display-date {
+    margin-top: 2px;
+    font-size: 14px;
+  }
+}
+.route-block .route {
+  max-width: 250px;
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+}
+@media (max-width: 500px) {
+  .route-block .route {
+    max-width: 100%;
+  }
+}
+.route-block .desc {
+  margin-top: 5px;
+  font-size: 12px;
+}
