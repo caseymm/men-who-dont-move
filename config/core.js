@@ -4,7 +4,7 @@ const { Baker } = require('@datagraphics/baker');
 const baker = new Baker({
   assets: 'assets',
   data: '_data',
-  domain: 'https://github.com/caseymm/men-who-dont-move/_dist',
+  domain: 'https://caseymm.github.io/men-who-dont-move/_dist',
   entrypoints: 'scripts/app.js',
   input: process.cwd(),
   layouts: '_layouts',
