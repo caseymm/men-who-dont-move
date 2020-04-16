@@ -15,7 +15,18 @@
   {% script 'app' %}
   {% endblock scripts -%}
 
-  {% block extra_scripts %}{% endblock extra_scripts %}
+  {% block extra_scripts %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35670323-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-35670323-5');
+  </script>
+
+  {% endblock extra_scripts %}
 </head>
 <body>
 
