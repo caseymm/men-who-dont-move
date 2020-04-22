@@ -5,7 +5,7 @@ const fs = require('fs');
 const moment = require('moment');
 
 request(
-  'https://api.mapbox.com/datasets/v1/caseymmiler/ck8xmyoke0ftj2knpmsoifr8c/features?access_token=pk.eyJ1IjoiY2FzZXltbWlsZXIiLCJhIjoiY2lpeHY1bnJ1MDAyOHVkbHpucnB1dGRmbyJ9.TzUoCLwyeDoLjh3tkDSD4w',
+  'https://api.mapbox.com/datasets/v1/caseymmiler/ck9boxlpp60732tpfg9aquu7o/features?access_token=pk.eyJ1IjoiY2FzZXltbWlsZXIiLCJhIjoiY2lpeHY1bnJ1MDAyOHVkbHpucnB1dGRmbyJ9.TzUoCLwyeDoLjh3tkDSD4w',
   function (error, response, body) {
     let allRoutes = [];
     let allPoints = {};
@@ -45,7 +45,7 @@ request(
         console.log(simpleFeature.properties.date)
         allRoutes.push(feat);
       } else {
-        feature.num = feature.properties.num;
+        feature.num = parseInt(feature.properties.num);
         totalPoints ++;
         if(feature.properties.flag === 'yes'){
           egregious ++;
