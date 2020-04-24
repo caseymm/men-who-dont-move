@@ -4,6 +4,9 @@ const slim = require('json-slim');
 const fs = require('fs');
 const moment = require('moment');
 
+// all-routes (full) = ck8xmyoke0ftj2knpmsoifr8c
+// all-routes-b = ck9boxlpp60732tpfg9aquu7o
+
 request(
   'https://api.mapbox.com/datasets/v1/caseymmiler/ck9boxlpp60732tpfg9aquu7o/features?access_token=pk.eyJ1IjoiY2FzZXltbWlsZXIiLCJhIjoiY2lpeHY1bnJ1MDAyOHVkbHpucnB1dGRmbyJ9.TzUoCLwyeDoLjh3tkDSD4w',
   function (error, response, body) {
@@ -32,10 +35,10 @@ request(
         if(simpleFeature.properties.loc){
           feat.loc = simpleFeature.properties.loc;
         }
-        // new new ck91o0ej104v81jmngco5ixys
-        // new ck90fc7ky060z1ilccrdhliaa
+        // new (full) ck91o0ej104v81jmngco5ixys
+        // new current ck9ekda8o0izd1ipjkxmdq5kb > ck9el8wms04nt1iqghqoqei5i
         feat.mapbox_url = encodeURI(
-          `https://api.mapbox.com/styles/v1/caseymmiler/ck91o0ej104v81jmngco5ixys/static/geojson(${slim(
+          `https://api.mapbox.com/styles/v1/caseymmiler/ck9el8wms04nt1iqghqoqei5i/static/geojson(${slim(
             simpleFeature
           )})/auto/250x250@2x?access_token=pk.eyJ1IjoiY2FzZXltbWlsZXIiLCJhIjoiY2lpeHY1bnJ1MDAyOHVkbHpucnB1dGRmbyJ9.TzUoCLwyeDoLjh3tkDSD4w&before_layer=all-routes-symbols&setfilter=["==","point_date","${
             simpleFeature.properties.date
@@ -58,13 +61,13 @@ request(
       }
     });
     allRoutes.sort((a, b) => new Date(b.route_date) - new Date(a.route_date));
-    fs.writeFile('_data/simpleRoutes.json', slim(allRoutes), function (err) {
+    fs.writeFile('_data/simpleRoutesNew.json', slim(allRoutes), function (err) {
       if (err) return console.log(err);
       console.log('wrote routes!');
     });
     allPoints.total = totalPoints;
     allPoints.egregious = egregious;
-    fs.writeFile('_data/points.json', slim(allPoints), function (err) {
+    fs.writeFile('_data/pointsNew.json', slim(allPoints), function (err) {
       if (err) return console.log(err);
       console.log('wrote points!');
     });
@@ -84,7 +87,7 @@ request(
       }
       finalData.push(item);
     })
-    fs.writeFile('_data/final.json', slim(finalData), function (err) {
+    fs.writeFile('_data/finalNew.json', slim(finalData), function (err) {
       if (err) return console.log(err);
       console.log('wrote combo data!');
     });
