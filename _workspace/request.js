@@ -21,6 +21,9 @@ request(
         if (simpleFeature.geometry.coordinates.length > 150) {
           simpleFeature = simplify(feature, 0.00005);
         }
+        if (simpleFeature.geometry.coordinates.length > 200) {
+          simpleFeature = simplify(feature, 0.00009);
+        }
         simpleFeature.properties.stroke = '#391bfe';
         simpleFeature.properties['stroke-width'] = 1.5;
         delete simpleFeature.properties.coordTimes;
