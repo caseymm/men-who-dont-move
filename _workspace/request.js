@@ -7,9 +7,10 @@ const moment = require('moment');
 // all-routes (full) = ck8xmyoke0ftj2knpmsoifr8c
 // all-routes-b = ck9boxlpp60732tpfg9aquu7o
 // all-routes-c = ck9n4gqi43gz32kmn6v9aogxs
+// all-routes-d = cka2z89hb04cw2kmp1sd76kse
 
 request(
-  'https://api.mapbox.com/datasets/v1/caseymmiler/ck9n4gqi43gz32kmn6v9aogxs/features?access_token=pk.eyJ1IjoiY2FzZXltbWlsZXIiLCJhIjoiY2lpeHY1bnJ1MDAyOHVkbHpucnB1dGRmbyJ9.TzUoCLwyeDoLjh3tkDSD4w',
+  'https://api.mapbox.com/datasets/v1/caseymmiler/cka2z89hb04cw2kmp1sd76kse/features?access_token=pk.eyJ1IjoiY2FzZXltbWlsZXIiLCJhIjoiY2lpeHY1bnJ1MDAyOHVkbHpucnB1dGRmbyJ9.TzUoCLwyeDoLjh3tkDSD4w',
   function (error, response, body) {
     let allRoutes = [];
     let allPoints = {};
@@ -22,7 +23,7 @@ request(
         if (simpleFeature.geometry.coordinates.length > 150) {
           simpleFeature = simplify(feature, 0.00005);
         }
-        if (simpleFeature.geometry.coordinates.length > 200) {
+        if (simpleFeature.geometry.coordinates.length >= 200) {
           simpleFeature = simplify(feature, 0.00009);
         }
         simpleFeature.properties.stroke = '#391bfe';
@@ -42,8 +43,9 @@ request(
         // new (full) ck91o0ej104v81jmngco5ixys
         // new current ck9ekda8o0izd1ipjkxmdq5kb > ck9el8wms04nt1iqghqoqei5i
         // all routes c ck9ua93tp04tn1ilhtall5kkp
+        // all routes d cka2z49re0erp1iqrvsf1zmlq
         feat.mapbox_url = encodeURI(
-          `https://api.mapbox.com/styles/v1/caseymmiler/ck9ua93tp04tn1ilhtall5kkp/static/geojson(${slim(
+          `https://api.mapbox.com/styles/v1/caseymmiler/cka2z49re0erp1iqrvsf1zmlq/static/geojson(${slim(
             simpleFeature
           )})/auto/250x250@2x?access_token=pk.eyJ1IjoiY2FzZXltbWlsZXIiLCJhIjoiY2lpeHY1bnJ1MDAyOHVkbHpucnB1dGRmbyJ9.TzUoCLwyeDoLjh3tkDSD4w&before_layer=all-routes-symbols&setfilter=["==","point_date","${
             simpleFeature.properties.date
