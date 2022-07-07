@@ -10,7 +10,7 @@
   "dependencies": {
     "intersection-observer": "^0.7.0",
     "json-slim": "^0.2.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "request": "^2.88.2",
     "simplify-geojson": "^1.0.3",
     "yall-js": "^3.1.7"
